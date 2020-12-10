@@ -40,7 +40,6 @@ You can spin up a new database using **Docker** with `docker-compose up`.
 
 _You will need to rename the Adventure Works 2014 OLTP Script archive to **adventure_works_2014_OLTP_script.zip** to get this to work!_
 
-
 ## Motivation
 
 Five years ago I was pretty happy developing .NET apps for large organizations.  The stack was
