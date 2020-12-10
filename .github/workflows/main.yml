@@ -25,6 +25,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       
+      - name: Download Adventureworks data file
+        uses: carlosperate/download-file-action@v1.0.3
+        with:
+          # URL of the file to download
+          file-url: https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks-oltp-install-script.zip
+     
+      - name: Unzip Adventureworks data file
+        uses: montudor/action-zip@v0.1.1
+        with:
+          # See montudor/action-zip README.md for more info
+          args: unzip -qq AdventureWorks-oltp-install-script.zip -d .
+     
       - name: Azure Login
         uses: Azure/login@v1.1
         with:
