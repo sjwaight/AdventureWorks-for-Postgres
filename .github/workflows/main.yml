@@ -24,6 +24,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+    
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1.58.1
       
       - name: Download Adventureworks data file
         uses: carlosperate/download-file-action@v1.0.3
@@ -36,6 +39,9 @@ jobs:
         with:
           # See montudor/action-zip README.md for more info
           args: unzip -qq AdventureWorks-oltp-install-script.zip -d .
+   
+      - name: Prep Adventurework files for Postgres insertion
+        run: ruby update_csvs.rb
      
       - name: Azure Login
         uses: Azure/login@v1.1
